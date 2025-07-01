@@ -1,7 +1,11 @@
-import "./App.css";
+import ResumeInputs from "./ResumeInputs";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <ResumeInputs />
+    </>
+  );
 }
 
 export default App;
