@@ -1,4 +1,4 @@
-import PersonalDetails from "./PersonalDetails";
+import PersonalDetails from "./personalDetails/PersonalDetails";
 
 export default function ResumeInputs() {
   return (

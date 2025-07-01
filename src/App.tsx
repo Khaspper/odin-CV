@@ -1,4 +1,4 @@
-import ResumeInputs from "./ResumeInputs";
+import ResumeInputs from "./components/ResumeInputs";
 
 function App() {
   return (
