@@ -28,7 +28,6 @@ export default function DropDownEducation() {
     const { name, value } = e.target;
     const field = name as keyof EducationInformation;
 
-    newInformation[field] = value;
     setNewInformation((prev) => ({
       ...prev,
       [field]: value,
@@ -65,7 +64,14 @@ export default function DropDownEducation() {
     const newEducationList = educationList.filter(
       (item) => item.id !== idToDelete
     );
-    console.log(newEducationList);
+    setNewInformation({
+      id: crypto.randomUUID(),
+      school: "",
+      degree: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+    });
     setEducationList([...newEducationList]);
     handleShowInfo();
   }
@@ -159,9 +165,9 @@ export default function DropDownEducation() {
               className="rounded-md py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
             />
           </div>
-          <div className={`flex mt-3 justify-around`}>
+          <div className={`flex mt-3 justify-around gap-5`}>
             <button
-              className="rounded-full border-2 p-2 cursor-pointer px-4 self-center pt-2 text-red-500"
+              className="rounded-full border-2 p-2 cursor-pointer px-4 self-center pt-2 text-red-500 container"
               type="button"
               onClick={handleOnDelete}
             >
@@ -169,7 +175,7 @@ export default function DropDownEducation() {
             </button>
 
             <button
-              className="rounded-full border-2 p-2 cursor-pointer px-4 self-center pt-2 text-blue-500"
+              className="rounded-full border-2 p-2 cursor-pointer px-4 self-center pt-2 text-blue-500 container"
               type="button"
               onClick={handleOnSave}
             >
