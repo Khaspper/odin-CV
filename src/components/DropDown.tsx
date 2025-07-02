@@ -17,16 +17,16 @@ export default function DropDownMenu({ title }: DropDownProps) {
   return (
     <>
       <section
-        className={`flex justify-between shadow-lg hover:cursor-pointer drop-down ${
-          showDropDown ? "flex-col" : ""
-        } `}
+        className={`flex flex-col shadow-lg hover:cursor-pointer border border-gray-300 bg-white text-gray-500 text-lg px-3 py-1 rounded transition-all duration-200 overflow-hidden ${
+          showDropDown ? "h-32" : "h-12"
+        }`}
         onClick={handleChange}
       >
-        <div className="grow flex justify-between">
-          <h2 className="hover:cursor-text grow-0">{title}</h2>
+        <div className="flex justify-between items-center">
+          <h2 className="hover:cursor-text">{title}</h2>
           <svg
-            className={`w-6 h-6 text-black justify-self-end transition duration-300 ease-in-out ${
-              showDropDown ? "-rotate-180" : "-rotate-360"
+            className={`w-6 h-6 text-black transition-transform duration-300 ease-in-out ${
+              showDropDown ? "rotate-180" : "rotate-0"
             }`}
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
@@ -44,11 +44,16 @@ export default function DropDownMenu({ title }: DropDownProps) {
             />
           </svg>
         </div>
-        {/* {showDropDown && (
-          <div className="overflow-hidden transition-all duration-200 drop-down">
-            Yo what's up gang!!!
-          </div>
-        )} */}
+        <div
+          className={`rounded-lg p-3 mt-2 shadow-md transition-all duration-200 ${
+            showDropDown
+              ? "opacity-100 scale-y-100"
+              : "opacity-0 scale-y-0 pointer-events-none"
+          } origin-top`}
+          style={{ transitionProperty: "opacity, transform" }}
+        >
+          <p>Yo what's up gang!!!</p>
+        </div>
       </section>
     </>
   );
