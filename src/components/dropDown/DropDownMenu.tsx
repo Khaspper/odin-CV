@@ -9,16 +9,11 @@ interface DropDownProps {
 
 export default function DropDownMenu({ title }: DropDownProps) {
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
-  // const [showAddInformation, setShowAddInformation] = useState<boolean>(false);
 
   function handleDropDown() {
     console.log(`${!showDropDown}`);
     setShowDropDown(!showDropDown);
   }
-
-  // function handleShowInfo() {
-  //   setShowAddInformation(!showAddInformation);
-  // }
 
   return (
     <>

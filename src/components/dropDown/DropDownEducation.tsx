@@ -1,33 +1,74 @@
-// function formType(type: string) {
-//   if (type === "Personal") {
-//     return (
-//       <Form
-//         inputs={["Full Name", "Email", "Phone Number", "Address"]}
-//         goBack={handleShowInfo}
-//       />
-//     );
-//   } else if (type === "Education") {
-//     return (
-//       <Form
-//         inputs={["School", "Degree", "Date", "Location"]}
-//         goBack={handleShowInfo}
-//       />
-//     );
-//   }
-//   return (
-//     <Form
-//       inputs={[
-//         "Company Name",
-//         "Position Title",
-//         "Date",
-//         "Location",
-//         "Description",
-//       ]}
-//       goBack={handleShowInfo}
-//     />
-//   );
-// }
+import { useState } from "react";
 
 export default function DropDownEducation() {
-  return <></>;
+  const [showAddInformation, setShowAddInformation] = useState<boolean>(false);
+  // const [educationList, setEducationList] = useState<Array>([]);
+
+  function handleShowInfo() {
+    setShowAddInformation(!showAddInformation);
+  }
+
+  return (
+    <>
+      {!showAddInformation ? (
+        <button
+          className="rounded-full border-4 p-2 cursor-pointer px-4 self-center pt-2"
+          type="button"
+          onClick={handleShowInfo}
+        >
+          &#43; Education
+        </button>
+      ) : (
+        <div className="flex flex-col container">
+          <div className={`field flex flex-col mt-0 `}>
+            <label htmlFor="school">School</label>
+            <input
+              id="school"
+              name="school"
+              type="text"
+              className="rounded-full py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
+            />
+          </div>
+          <div className={`field flex flex-col mt-3`}>
+            <label htmlFor="degree">Degree</label>
+            <input
+              id="degree"
+              name="degree"
+              type="text"
+              className="rounded-full py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
+            />
+          </div>
+          <div className={`flex flex-row container`}>
+            <div>
+              <label htmlFor="Start Date">Start Date</label>
+              <input
+                id="Start Date"
+                name="Start Date"
+                type="date"
+                className="rounded-full py-3 px-2 bg-gray-200 text-black text-sm mt-1"
+              />
+            </div>
+            <div>
+              <label htmlFor="End Date">End Date</label>
+              <input
+                id="End Date"
+                name="End Date"
+                type="date"
+                className="rounded-full py-3 px-2 bg-gray-200 text-black text-sm mt-1"
+              />
+            </div>
+          </div>
+          <div className={`field flex flex-col mt-3`}>
+            <label htmlFor="location">Location</label>
+            <input
+              id="location"
+              name="location"
+              type="text"
+              className="rounded-full py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
+            />
+          </div>
+        </div>
+      )}
+    </>
+  );
 }
