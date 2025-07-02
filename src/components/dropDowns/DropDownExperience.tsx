@@ -75,6 +75,21 @@ export default function DropDownExperience() {
               className="rounded-md py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
             />
           </div>
+          <div className={`flex mt-3 justify-around`}>
+            <button
+              className="rounded-full border-2 p-2 cursor-pointer px-4 self-center pt-2 text-red-500"
+              type="button"
+            >
+              Delete
+            </button>
+
+            <button
+              className="rounded-full border-2 p-2 cursor-pointer px-4 self-center pt-2 text-blue-500"
+              type="button"
+            >
+              save
+            </button>
+          </div>
         </div>
       )}
     </>

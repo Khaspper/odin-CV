@@ -54,7 +54,7 @@ export default function DropDownMenu({ title }: DropDownProps) {
         >
           {title === "Personal Details" ? (
             <DropDownPersonal />
-          ) : title === "Personal Details" ? (
+          ) : title === "Education" ? (
             <DropDownEducation />
           ) : (
             <DropDownExperience />
