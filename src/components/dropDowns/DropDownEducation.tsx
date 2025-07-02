@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DropDownItem from "./DropDownItem";
 
 interface EducationInformation {
   id: string;
@@ -35,7 +36,17 @@ export default function DropDownEducation() {
   }
 
   function handleOnSave() {
-    const newEducationList = [...educationList, newInformation];
+    const exists = educationList.some((item) => item.id === newInformation.id);
+    let newEducationList;
+
+    if (exists) {
+      newEducationList = educationList.map((item) =>
+        item.id === newInformation.id ? newInformation : item
+      );
+    } else {
+      newEducationList = [...educationList, newInformation];
+    }
+
     setNewInformation({
       id: crypto.randomUUID(),
       school: "",
@@ -44,8 +55,25 @@ export default function DropDownEducation() {
       endDate: "",
       location: "",
     });
+    console.log(newEducationList);
     setEducationList(newEducationList);
     handleShowInfo();
+  }
+
+  function handleOnDelete() {
+    const idToDelete = newInformation.id;
+    const newEducationList = educationList.filter(
+      (item) => item.id !== idToDelete
+    );
+    console.log(newEducationList);
+    setEducationList([...newEducationList]);
+    handleShowInfo();
+  }
+
+  function handleEditInformation(id: string) {
+    const information = educationList.find((item) => item.id === id);
+    setNewInformation(information!);
+    setShowAddInformation(!showAddInformation);
   }
 
   function handleShowInfo() {
@@ -55,13 +83,23 @@ export default function DropDownEducation() {
   return (
     <>
       {!showAddInformation ? (
-        <button
-          className="rounded-full border-4 p-2 cursor-pointer px-4 self-center pt-2"
-          type="button"
-          onClick={handleShowInfo}
-        >
-          &#43; Education
-        </button>
+        <div className="flex flex-col justify-center grow gap-2">
+          {educationList.map((item) => (
+            <DropDownItem
+              key={item.id}
+              id={item.id}
+              title={item.school}
+              edit={handleEditInformation}
+            />
+          ))}
+          <button
+            className="rounded-full border-4 p-2 cursor-pointer px-4 self-center pt-2"
+            type="button"
+            onClick={handleShowInfo}
+          >
+            &#43; Education
+          </button>
+        </div>
       ) : (
         <div className="flex flex-col container">
           <div className={`field flex flex-col mt-0 `}>
@@ -125,6 +163,7 @@ export default function DropDownEducation() {
             <button
               className="rounded-full border-2 p-2 cursor-pointer px-4 self-center pt-2 text-red-500"
               type="button"
+              onClick={handleOnDelete}
             >
               Delete
             </button>
