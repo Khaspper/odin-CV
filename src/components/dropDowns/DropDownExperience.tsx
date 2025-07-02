@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function DropDownEducation() {
+export default function DropDownExperience() {
   const [showAddInformation, setShowAddInformation] = useState<boolean>(false);
   // const [educationList, setEducationList] = useState<Array>([]);
 
@@ -20,22 +20,22 @@ export default function DropDownEducation() {
         </button>
       ) : (
         <div className="flex flex-col container">
-          <div className={`field flex flex-col mt-0 `}>
-            <label htmlFor="school">School</label>
+          <div className={` flex flex-col mt-0 `}>
+            <label htmlFor="companyName">Company Name</label>
             <input
-              id="school"
-              name="school"
+              id="companyName"
+              name="companyName"
               type="text"
-              className="rounded-full py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
+              className="rounded-md py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
             />
           </div>
-          <div className={`field flex flex-col mt-3`}>
-            <label htmlFor="degree">Degree</label>
+          <div className={` flex flex-col mt-3`}>
+            <label htmlFor="positionTitle">Position Title</label>
             <input
-              id="degree"
-              name="degree"
+              id="positionTitle"
+              name="positionTitle"
               type="text"
-              className="rounded-full py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
+              className="rounded-md py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
             />
           </div>
           <div className={`flex flex-row container`}>
@@ -45,7 +45,7 @@ export default function DropDownEducation() {
                 id="Start Date"
                 name="Start Date"
                 type="date"
-                className="rounded-full py-3 px-2 bg-gray-200 text-black text-sm mt-1"
+                className="rounded-md py-3 px-2 bg-gray-200 text-black text-sm mt-1"
               />
             </div>
             <div>
@@ -54,17 +54,25 @@ export default function DropDownEducation() {
                 id="End Date"
                 name="End Date"
                 type="date"
-                className="rounded-full py-3 px-2 bg-gray-200 text-black text-sm mt-1"
+                className="rounded-md py-3 px-2 bg-gray-200 text-black text-sm mt-1"
               />
             </div>
           </div>
-          <div className={`field flex flex-col mt-3`}>
+          <div className={` flex flex-col mt-3`}>
             <label htmlFor="location">Location</label>
             <input
               id="location"
               name="location"
               type="text"
-              className="rounded-full py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
+              className="rounded-md py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
+            />
+          </div>
+          <div className={` flex flex-col mt-3`}>
+            <label htmlFor="description">Description</label>
+            <textarea
+              id="description"
+              name="description"
+              className="rounded-md py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
             />
           </div>
         </div>

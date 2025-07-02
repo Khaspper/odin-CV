@@ -8,7 +8,7 @@ export default function DropDownPersonal() {
             id="fullName"
             name="fullName"
             type="text"
-            className="rounded-full py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
+            className="rounded-md py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
           />
         </div>
         <div className={`field flex flex-col mt-3`}>
@@ -17,7 +17,7 @@ export default function DropDownPersonal() {
             id="email"
             name="email"
             type="text"
-            className="rounded-full py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
+            className="rounded-md py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
           />
         </div>
         <div className={`field flex flex-col mt-3`}>
@@ -26,7 +26,7 @@ export default function DropDownPersonal() {
             id="phoneNumber"
             name="phoneNumber"
             type="text"
-            className="rounded-full py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
+            className="rounded-md py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
           />
         </div>
         <div className={`field flex flex-col mt-3`}>
@@ -35,7 +35,7 @@ export default function DropDownPersonal() {
             id="address"
             name="address"
             type="text"
-            className="rounded-full py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
+            className="rounded-md py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
           />
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DropDownPersonal from "./DropDownPersonal";
 import DropDownEducation from "./DropDownEducation";
-// import DropDownMenuItems from "./DropDownMenuItems";
+import DropDownExperience from "./DropDownExperience";
 
 interface DropDownProps {
   title: string;
@@ -54,8 +54,10 @@ export default function DropDownMenu({ title }: DropDownProps) {
         >
           {title === "Personal Details" ? (
             <DropDownPersonal />
-          ) : (
+          ) : title === "Personal Details" ? (
             <DropDownEducation />
+          ) : (
+            <DropDownExperience />
           )}
           {/* {!showAddInformation ? (
             <button

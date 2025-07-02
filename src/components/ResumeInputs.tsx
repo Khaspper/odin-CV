@@ -1,4 +1,4 @@
-import DropDownMenu from "./dropDown/DropDownMenu";
+import DropDownMenu from "./dropDowns/DropDownMenu";
 
 export default function ResumeInputs() {
   return (
