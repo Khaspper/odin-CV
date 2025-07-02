@@ -4,7 +4,7 @@ interface DropDownProps {
   title: string;
 }
 
-export default function DropDownItem({ title }: DropDownProps) {
+export default function DropDownMenu({ title }: DropDownProps) {
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
 
   function handleChange() {

@@ -1,9 +1,9 @@
-import DropDownItem from "./DropDown";
+import DropDownMenu from "./DropDown";
 
 export default function ResumeInputs() {
   return (
     <>
-      <DropDownItem title="Personal Details" />
+      <DropDownMenu title="Personal Details" />
     </>
   );
 }
