@@ -1,4 +1,5 @@
 import { useState } from "react";
+import DropDownItem from "./DropDownItem";
 
 interface ExperienceInformation {
   id: string;
@@ -53,6 +54,12 @@ export default function DropDownExperience() {
     });
   }
 
+  function handleEditInformation(id: string) {
+    const information = experienceList.find((item) => item.id === id);
+    setNewInformation(information!);
+    setShowAddInformation(!showAddInformation);
+  }
+
   function handleOnSave() {
     const exists = experienceList.some(
       (item: ExperienceInformation) => item.id === newInformation.id
@@ -77,19 +84,29 @@ export default function DropDownExperience() {
     );
     handleReset();
     setExperienceList(newExperienceList);
-    console.log(newExperienceList);
+    setShowAddInformation(!showAddInformation);
   }
 
   return (
     <>
       {!showAddInformation ? (
-        <button
-          className="rounded-full border-4 p-2 cursor-pointer px-4 self-center pt-2"
-          type="button"
-          onClick={handleShowInfo}
-        >
-          &#43; Education
-        </button>
+        <div className="flex flex-col justify-center grow gap-2">
+          {experienceList.map((item) => (
+            <DropDownItem
+              key={item.id}
+              id={item.id}
+              title={item.companyName}
+              edit={handleEditInformation}
+            />
+          ))}
+          <button
+            className="rounded-full border-4 p-2 cursor-pointer px-4 self-center pt-2"
+            type="button"
+            onClick={handleShowInfo}
+          >
+            &#43; Experience
+          </button>
+        </div>
       ) : (
         <div className="flex flex-col container">
           <div className={` flex flex-col mt-0 `}>
