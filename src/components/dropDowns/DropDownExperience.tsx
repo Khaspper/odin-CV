@@ -1,11 +1,69 @@
 import { useState } from "react";
 
+interface ExperienceInformation {
+  id: string;
+  companyName: string;
+  positionTitle: string;
+  startDate: string;
+  endDate: string;
+  location: string;
+  description: string;
+}
+
 export default function DropDownExperience() {
   const [showAddInformation, setShowAddInformation] = useState<boolean>(false);
-  // const [educationList, setEducationList] = useState<Array>([]);
+  const [experienceList, setExperienceList] = useState<ExperienceInformation[]>(
+    []
+  );
+  const [newInformation, setNewInformation] = useState<ExperienceInformation>({
+    id: crypto.randomUUID(),
+    companyName: "",
+    positionTitle: "",
+    startDate: "",
+    endDate: "",
+    location: "",
+    description: "",
+  });
 
   function handleShowInfo() {
     setShowAddInformation(!showAddInformation);
+  }
+
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    const { name, value } = e.target;
+    const field = name as keyof ExperienceInformation;
+
+    setNewInformation((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  }
+
+  function handleOnSave() {
+    const exists = experienceList.some(
+      (item: ExperienceInformation) => item.id === newInformation.id
+    );
+    let newExperienceList;
+    if (exists) {
+      newExperienceList = experienceList.map((item: ExperienceInformation) =>
+        item.id === newInformation.id ? newInformation : item
+      );
+    } else {
+      newExperienceList = [...experienceList, newInformation];
+    }
+    setNewInformation({
+      id: crypto.randomUUID(),
+      companyName: "",
+      positionTitle: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      description: "",
+    });
+    setExperienceList(newExperienceList);
+    handleShowInfo();
   }
 
   return (
@@ -26,6 +84,8 @@ export default function DropDownExperience() {
               id="companyName"
               name="companyName"
               type="text"
+              value={newInformation.companyName}
+              onChange={handleChange}
               className="rounded-md py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
             />
           </div>
@@ -35,25 +95,31 @@ export default function DropDownExperience() {
               id="positionTitle"
               name="positionTitle"
               type="text"
+              value={newInformation.positionTitle}
+              onChange={handleChange}
               className="rounded-md py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
             />
           </div>
           <div className={`flex flex-row container`}>
             <div>
-              <label htmlFor="Start Date">Start Date</label>
+              <label htmlFor="startDate">Start Date</label>
               <input
-                id="Start Date"
-                name="Start Date"
+                id="startDate"
+                name="startDate"
                 type="date"
+                value={newInformation.startDate}
+                onChange={handleChange}
                 className="rounded-md py-3 px-2 bg-gray-200 text-black text-sm mt-1"
               />
             </div>
             <div>
-              <label htmlFor="End Date">End Date</label>
+              <label htmlFor="endDate">End Date</label>
               <input
-                id="End Date"
-                name="End Date"
+                id="endDate"
+                name="endDate"
                 type="date"
+                value={newInformation.endDate}
+                onChange={handleChange}
                 className="rounded-md py-3 px-2 bg-gray-200 text-black text-sm mt-1"
               />
             </div>
@@ -64,6 +130,8 @@ export default function DropDownExperience() {
               id="location"
               name="location"
               type="text"
+              value={newInformation.location}
+              onChange={handleChange}
               className="rounded-md py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
             />
           </div>
@@ -72,6 +140,8 @@ export default function DropDownExperience() {
             <textarea
               id="description"
               name="description"
+              value={newInformation.description}
+              onChange={handleChange}
               className="rounded-md py-3 px-4 bg-gray-200 text-black text-sm mt-1 "
             />
           </div>
@@ -86,6 +156,7 @@ export default function DropDownExperience() {
             <button
               className="rounded-full border-2 p-2 cursor-pointer px-4 self-center pt-2 text-blue-500 container"
               type="button"
+              onClick={handleOnSave}
             >
               save
             </button>

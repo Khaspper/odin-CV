@@ -54,7 +54,6 @@ export default function DropDownEducation() {
       endDate: "",
       location: "",
     });
-    console.log(newEducationList);
     setEducationList(newEducationList);
     handleShowInfo();
   }
