@@ -30,7 +30,7 @@ export default function ResumeInputs({
 }: ResumeInputsProps) {
   return (
     <>
-      <div className="flex flex-col shadow-2xl top-0 mt-5">
+      <div className="flex flex-col top-0 mt-5">
         <DropDownMenu
           title="Personal Details"
           information={personalInformation}

@@ -1,3 +1,4 @@
+import Resume from "./components/resumeComponents/Resume";
 import { useState } from "react";
 import ResumeInputs from "./components/ResumeInputs";
 
@@ -53,6 +54,7 @@ function App() {
           educationList={educationList}
           setEducationList={setEducationList}
         />
+        <Resume personalInformation={personalInformation} />
       </div>
     </>
   );
