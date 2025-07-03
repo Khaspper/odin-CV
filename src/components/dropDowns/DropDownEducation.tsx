@@ -34,6 +34,17 @@ export default function DropDownEducation() {
     }));
   }
 
+  function handleReset() {
+    setNewInformation({
+      id: crypto.randomUUID(),
+      school: "",
+      degree: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+    });
+  }
+
   function handleOnSave() {
     const exists = educationList.some((item) => item.id === newInformation.id);
     let newEducationList;
@@ -46,14 +57,7 @@ export default function DropDownEducation() {
       newEducationList = [...educationList, newInformation];
     }
 
-    setNewInformation({
-      id: crypto.randomUUID(),
-      school: "",
-      degree: "",
-      startDate: "",
-      endDate: "",
-      location: "",
-    });
+    handleReset();
     setEducationList(newEducationList);
     handleShowInfo();
   }
@@ -63,14 +67,7 @@ export default function DropDownEducation() {
     const newEducationList = educationList.filter(
       (item) => item.id !== idToDelete
     );
-    setNewInformation({
-      id: crypto.randomUUID(),
-      school: "",
-      degree: "",
-      startDate: "",
-      endDate: "",
-      location: "",
-    });
+    handleReset();
     setEducationList([...newEducationList]);
     handleShowInfo();
   }

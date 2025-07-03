@@ -41,6 +41,18 @@ export default function DropDownExperience() {
     }));
   }
 
+  function handleReset() {
+    setNewInformation({
+      id: crypto.randomUUID(),
+      companyName: "",
+      positionTitle: "",
+      startDate: "",
+      endDate: "",
+      location: "",
+      description: "",
+    });
+  }
+
   function handleOnSave() {
     const exists = experienceList.some(
       (item: ExperienceInformation) => item.id === newInformation.id
@@ -53,17 +65,19 @@ export default function DropDownExperience() {
     } else {
       newExperienceList = [...experienceList, newInformation];
     }
-    setNewInformation({
-      id: crypto.randomUUID(),
-      companyName: "",
-      positionTitle: "",
-      startDate: "",
-      endDate: "",
-      location: "",
-      description: "",
-    });
+    handleReset();
     setExperienceList(newExperienceList);
     handleShowInfo();
+  }
+
+  function handleOnDelete() {
+    const idToDelete = newInformation.id;
+    const newExperienceList = experienceList.filter(
+      (item: ExperienceInformation) => item.id !== idToDelete
+    );
+    handleReset();
+    setExperienceList(newExperienceList);
+    console.log(newExperienceList);
   }
 
   return (
@@ -149,6 +163,7 @@ export default function DropDownExperience() {
             <button
               className="rounded-full border-2 p-2 cursor-pointer px-4 self-center pt-2 text-red-500 container"
               type="button"
+              onClick={handleOnDelete}
             >
               Delete
             </button>
