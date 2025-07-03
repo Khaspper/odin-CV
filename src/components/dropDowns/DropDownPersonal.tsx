@@ -1,21 +1,16 @@
-import { useState } from "react";
+import type { PersonalInformation } from "../../App";
 
-interface PersonalInformation {
-  fullName: string;
-  email: string;
-  phoneNumber: string;
-  address: string;
+interface DropDownPersonalProps {
+  personalInformation: PersonalInformation;
+  setPersonalInformation: React.Dispatch<
+    React.SetStateAction<PersonalInformation>
+  >;
 }
 
-export default function DropDownPersonal() {
-  const [personalInformation, setPersonalInformation] =
-    useState<PersonalInformation>({
-      fullName: "",
-      email: "",
-      phoneNumber: "",
-      address: "",
-    });
-
+export default function DropDownPersonal({
+  personalInformation,
+  setPersonalInformation,
+}: DropDownPersonalProps) {
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
     const field = name as keyof PersonalInformation;

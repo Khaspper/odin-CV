@@ -1,21 +1,20 @@
 import { useState } from "react";
 import DropDownItem from "./DropDownItem";
+import type { ExperienceInformation } from "../../App";
 
-interface ExperienceInformation {
-  id: string;
-  companyName: string;
-  positionTitle: string;
-  startDate: string;
-  endDate: string;
-  location: string;
-  description: string;
+interface DropDownExperienceProps {
+  experienceList: ExperienceInformation[];
+  setExperienceList: React.Dispatch<
+    React.SetStateAction<ExperienceInformation[]>
+  >;
 }
 
-export default function DropDownExperience() {
+export default function DropDownExperience({
+  experienceList,
+  setExperienceList,
+}: DropDownExperienceProps) {
   const [showAddInformation, setShowAddInformation] = useState<boolean>(false);
-  const [experienceList, setExperienceList] = useState<ExperienceInformation[]>(
-    []
-  );
+
   const [newInformation, setNewInformation] = useState<ExperienceInformation>({
     id: crypto.randomUUID(),
     companyName: "",
@@ -73,7 +72,7 @@ export default function DropDownExperience() {
       newExperienceList = [...experienceList, newInformation];
     }
     handleReset();
-    setExperienceList(newExperienceList);
+    setExperienceList(newExperienceList as ExperienceInformation[]);
     handleShowInfo();
   }
 

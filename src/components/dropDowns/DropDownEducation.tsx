@@ -1,20 +1,19 @@
 import { useState } from "react";
 import DropDownItem from "./DropDownItem";
+import type { EducationInformation } from "../../App";
 
-interface EducationInformation {
-  id: string;
-  school: string;
-  degree: string;
-  startDate: string;
-  endDate: string;
-  location: string;
+interface DropDownEducationProps {
+  educationList: EducationInformation[];
+  setEducationList: React.Dispatch<
+    React.SetStateAction<EducationInformation[]>
+  >;
 }
 
-export default function DropDownEducation() {
+export default function DropDownEducation({
+  educationList,
+  setEducationList,
+}: DropDownEducationProps) {
   const [showAddInformation, setShowAddInformation] = useState<boolean>(false);
-  const [educationList, setEducationList] = useState<EducationInformation[]>(
-    []
-  );
   const [newInformation, setNewInformation] = useState<EducationInformation>({
     id: crypto.randomUUID(),
     school: "",

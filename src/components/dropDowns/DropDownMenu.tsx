@@ -2,12 +2,30 @@ import { useState } from "react";
 import DropDownPersonal from "./DropDownPersonal";
 import DropDownEducation from "./DropDownEducation";
 import DropDownExperience from "./DropDownExperience";
+import type {
+  PersonalInformation,
+  ExperienceInformation,
+  EducationInformation,
+} from "../../App";
 
 interface DropDownProps {
   title: string;
+  information:
+    | PersonalInformation
+    | ExperienceInformation[]
+    | EducationInformation[];
+  setInformation: React.Dispatch<
+    React.SetStateAction<
+      PersonalInformation | ExperienceInformation[] | EducationInformation[]
+    >
+  >;
 }
 
-export default function DropDownMenu({ title }: DropDownProps) {
+export default function DropDownMenu({
+  title,
+  information,
+  setInformation,
+}: DropDownProps) {
   const [showDropDown, setShowDropDown] = useState<boolean>(false);
 
   function handleDropDown() {
@@ -53,11 +71,32 @@ export default function DropDownMenu({ title }: DropDownProps) {
           } origin-top flex flex-cols justify-center`}
         >
           {title === "Personal Details" ? (
-            <DropDownPersonal />
+            <DropDownPersonal
+              personalInformation={information as PersonalInformation}
+              setPersonalInformation={
+                setInformation as React.Dispatch<
+                  React.SetStateAction<PersonalInformation>
+                >
+              }
+            />
           ) : title === "Education" ? (
-            <DropDownEducation />
+            <DropDownEducation
+              educationList={information as EducationInformation[]}
+              setEducationList={
+                setInformation as React.Dispatch<
+                  React.SetStateAction<EducationInformation[]>
+                >
+              }
+            />
           ) : (
-            <DropDownExperience />
+            <DropDownExperience
+              experienceList={information as ExperienceInformation[]}
+              setExperienceList={
+                setInformation as React.Dispatch<
+                  React.SetStateAction<ExperienceInformation[]>
+                >
+              }
+            />
           )}
           {/* {!showAddInformation ? (
             <button
