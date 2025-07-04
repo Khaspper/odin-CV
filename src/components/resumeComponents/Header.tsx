@@ -7,11 +7,15 @@ export default function Header({
   address,
 }: PersonalInformation) {
   return (
-    <div className="border-2 container h-[200px]">
-      <h1 className="">{fullName}</h1>
-      <h1>{email}</h1>
-      <h1>{phoneNumber}</h1>
-      <h1>{address}</h1>
+    <div className="container h-[200px] bg-sky-900 flex flex-col justify-around items-center text-white">
+      <h1 className="grow text-5xl justify-center flex items-center">
+        {fullName}
+      </h1>
+      <div className="grow flex items-center gap-20">
+        <h1>{email}</h1>
+        <h1>{phoneNumber}</h1>
+        <h1>{address}</h1>
+      </div>
     </div>
   );
 }
