@@ -36,7 +36,7 @@ export default function DropDownMenu({
   return (
     <>
       <section
-        className={`flex flex-col shadow-lg border border-gray-300 bg-white text-black-500 text-lg px-3 py-1 rounded transition-all ease-in-out duration-300 overflow-hidden max-w-[22rem] ${
+        className={`flex flex-col shadow-lg border border-gray-300 bg-white text-black-500 text-lg px-3 py-1 rounded transition-all ease-in-out duration-300 overflow-hidden w-[22rem] ${
           showDropDown ? "max-h-[2000px]" : "max-h-12"
         }`}
       >
