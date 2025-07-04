@@ -54,7 +54,10 @@ function App() {
           educationList={educationList}
           setEducationList={setEducationList}
         />
-        <Resume personalInformation={personalInformation} />
+        <Resume
+          personalInformation={personalInformation}
+          educationInformation={educationList}
+        />
       </div>
     </>
   );
