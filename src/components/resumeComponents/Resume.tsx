@@ -1,15 +1,22 @@
-import type { PersonalInformation, EducationInformation } from "../../App";
+import type {
+  PersonalInformation,
+  EducationInformation,
+  ExperienceInformation,
+} from "../../App";
 import Header from "./Header";
 import Education from "./Education";
+import Experience from "./Experience";
 
 interface ResumeProps {
   personalInformation: PersonalInformation;
   educationInformation: EducationInformation[];
+  experienceInformation: ExperienceInformation[];
 }
 
 export default function Resume({
   personalInformation,
   educationInformation,
+  experienceInformation,
 }: ResumeProps) {
   return (
     <div
@@ -18,6 +25,7 @@ export default function Resume({
     >
       <Header {...personalInformation} />
       <Education educationInformationList={educationInformation} />
+      <Experience experienceInformationList={experienceInformation} />
     </div>
   );
 }

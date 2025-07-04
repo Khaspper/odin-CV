@@ -57,6 +57,7 @@ function App() {
         <Resume
           personalInformation={personalInformation}
           educationInformation={educationList}
+          experienceInformation={experienceList}
         />
       </div>
     </>

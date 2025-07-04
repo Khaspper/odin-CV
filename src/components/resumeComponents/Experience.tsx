@@ -1,13 +1,13 @@
-import type { EducationInformation } from "../../App";
+import type { ExperienceInformation } from "../../App";
 
-interface EducationProps {
-  educationInformationList: EducationInformation[];
+interface ExperienceProps {
+  experienceInformationList: ExperienceInformation[];
 }
 
-export default function Education({
-  educationInformationList,
-}: EducationProps) {
-  if (educationInformationList.length === 0) {
+export default function Experience({
+  experienceInformationList,
+}: ExperienceProps) {
+  if (experienceInformationList.length === 0) {
     return <div>Nothing Here</div>;
   }
 
@@ -19,7 +19,7 @@ export default function Education({
             Education
           </div>
         </div>
-        {educationInformationList.map((item) => {
+        {experienceInformationList.map((item) => {
           return (
             <div className="border-2 flex items-center gap-10">
               <div className="flex flex-col gap-2">
@@ -31,8 +31,8 @@ export default function Education({
                 <p key={`${item.id}-location`}>{item.location}</p>
               </div>
               <div>
-                <p key={`${item.id}-school`}>{item.school}</p>
-                <p key={`${item.id}-degree`}>{item.degree}</p>
+                <p key={`${item.id}-companyName`}>{item.companyName}</p>
+                <p key={`${item.id}-positionTitle`}>{item.positionTitle}</p>
               </div>
             </div>
           );
