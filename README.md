@@ -1,69 +1,7 @@
-# React + TypeScript + Vite
+# Resume builder with React, TypeScript and TailwindCss
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Jeez this one was kind of annoying mainly because In the beginning I didn't really know what to do for example I thought the best course of action would be to build the resume inputs first... horible mistake I shouldve started with the highest parent... which was the App.tsx file... and then put in some dummy information so that it would show on the resume side... and then pass the information down to the resume input children as states and then they can edit the state but yeah...
 
-Currently, two official plugins are available:
+Learning Tailwind actually wasnt that hard... it is a lot like css I did have to go to the docs a lot (the docs were probably the best docs I have ever read...) but I learned a lot using the docs and since I have a solid understanding of css it really wasnt that hard...
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+pretty much the same thing with Typescript... I did learn about React.Dispatch<React.SetStateAction> that was cool and React.ChangeEvent other than that it was pretty easy to learn I did use AI a little bit but I learned from what it fixed and understood it fully so I wasnt really cheating persay anyways this project taught me a lot bu was super boring
